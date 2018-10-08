@@ -17,17 +17,11 @@ struct Player
 		position.y += vectorMove.y * velocity;
 	}
 
-	Player(int _numBombs, Vector2 _position, float _velocity)
-	{
-		numBombs = _numBombs;
-		position = _position;
-		velocity = _velocity;
-	}
+	Player(int _numBombs, Vector2 _position, float _velocity) : 
+		numBombs(_numBombs), position(_position), velocity(_velocity) {}
 
-	Player()
-	{
-		Player(0, Vector2(0, 0), 0);
-	}
+	Player() : Player(0, Vector2(0, 0), 0)
+	{}
 };
 
 std::vector<Player> players;

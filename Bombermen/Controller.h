@@ -2,26 +2,18 @@
 
 struct PlayerVK
 {
-	unsigned char up = 87;
-	unsigned char down = 83;
-	unsigned char right = 68;
-	unsigned char left = 65;
+	unsigned char up;
+	unsigned char down;
+	unsigned char right;
+	unsigned char left;
 
-	unsigned char setBomb = 70;
+	unsigned char setBomb;
 
-	PlayerVK(unsigned char _up, unsigned char _down, unsigned char _right, unsigned char _left, unsigned char _setBomb)
-	{
-		up = _up;
-		down = _down;
-		right = _right;
-		left = _left;
-		setBomb = _setBomb;
-	}
+	PlayerVK(unsigned char _up, unsigned char _down, unsigned char _right, unsigned char _left, unsigned char _setBomb) :
+		up(_up), down(_down), right(_right), left(_left), setBomb(_setBomb) {}
 
-	PlayerVK()
-	{
-		PlayerVK((unsigned char)KeyCodes::W, (unsigned char)KeyCodes::S, (unsigned char)KeyCodes::D, (unsigned char)KeyCodes::A, (unsigned char)KeyCodes::F);
-	}
+	PlayerVK() : PlayerVK('W', 'S', 'D', 'A', 'F')
+	{}
 };
 
 void InitController(std::vector<PlayerVK> &VKs);

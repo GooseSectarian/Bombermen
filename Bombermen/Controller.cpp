@@ -6,19 +6,20 @@
 std::vector<PlayerVK> playerVKs;
 void KeyboardFunc(unsigned char key, int x, int y)
 {
-	// проверка playerVKs на правильность
 	// обработка русских символов
 	key = toupper(key);
-
+	std::cout << (int)playerVKs[0].up << " " << (int)playerVKs[0].left << " ";
 	for (size_t i = 0; i < playerVKs.size(); i++)
 	{
 		if (playerVKs[i].setBomb == key)
 		{
+			std::cout << "F";
 			PlayerSetBomb(i);
 			break;
 		}
 		if (playerVKs[i].up == key)
 		{
+			std::cout << "W";
 			PlayerMove(i, Vector2(0, 1));
 			break;
 		}
@@ -42,8 +43,7 @@ void KeyboardFunc(unsigned char key, int x, int y)
 // Перед вызовом функций из Controller нужно вызвать эту функцию
 void InitController(std::vector<PlayerVK> &VKs)
 {
-	//playerVKs = VKs;
-	playerVKs.assign(VKs.begin(), VKs.end());
+	playerVKs = VKs;
 }
 void MainLoop() {
 	glutKeyboardFunc(KeyboardFunc);	

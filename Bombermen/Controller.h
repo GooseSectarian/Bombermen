@@ -2,12 +2,12 @@
 
 struct PlayerVK
 {
-	unsigned char up;
-	unsigned char down;
-	unsigned char right;
-	unsigned char left;
+	unsigned char up = 87;
+	unsigned char down = 83;
+	unsigned char right = 68;
+	unsigned char left = 65;
 
-	unsigned char setBomb;
+	unsigned char setBomb = 70;
 
 	PlayerVK(unsigned char _up, unsigned char _down, unsigned char _right, unsigned char _left, unsigned char _setBomb)
 	{

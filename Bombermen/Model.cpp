@@ -1,5 +1,6 @@
-#include "Model.h"
 #include "stdafx.h"
+#include "Model.h"
+
 
 #include "View.h"
 
@@ -38,6 +39,10 @@ void PlayerMove(int playerNumber, Vector2 vectorMove)
 	players[playerNumber].Move(vectorMove);
 }
 
+void PlayerSetBomb(int playerNumber)
+{
+
+}
 void InitPlayers(int NumPlayers, int StartNumBombs, float StartPlayerVelocity)
 {
 	players.resize(NumPlayers);

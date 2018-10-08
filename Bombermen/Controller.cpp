@@ -2,48 +2,51 @@
 #include "Controller.h"
 
 #include "Model.h"
+#include <iostream>
+#include <map>
 
-#define VK_UP_PLAYER1 1
-#define VK_DOWN_PLAYER1 12
-#define VK_RIGHT_PLAYER1 13
-#define VK_LEFT_PLAYER1 14
-
-void KeyboardUpFunc(unsigned char key, int x, int y)
+enum class VKPlayer1
 {
-	int a = 5;
+	UP		= (int)KeyCodes::W,
+	DOWN	= (int)KeyCodes::S,
+	RIGHT	= (int)KeyCodes::D,
+	LEFT	= (int)KeyCodes::A,
+
+};
+
+void KeyboardFunc(unsigned char key, int x, int y)
+{
+	key = toupper(key);
+
 	switch (key)
 	{
-		case VK_UP_PLAYER1:
+		case (int)VKPlayer1::UP:
 		{
+			std::cout << "VK_PLAYER1_UP" << std::endl;
+			PlayerMove(PlayersNumber::_1, Vector2(0, 1));
 			break;
 		}
-		case VK_DOWN_PLAYER1:
+		case (int)VKPlayer1::DOWN:
 		{
+			PlayerMove(PlayersNumber::_1, Vector2(0, -1));
 			break;
 		}
-		case VK_RIGHT_PLAYER1:
+		case (int)VKPlayer1::RIGHT:
 		{
+			PlayerMove(PlayersNumber::_1, Vector2(1, 0));
 			break;
 		}
-		case VK_LEFT_PLAYER1:
+		case (int)VKPlayer1::LEFT:
 		{
+			PlayerMove(PlayersNumber::_1, Vector2(-1, 0));
 			break;
 		}
 		default:
 			break;
 	}
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glBegin(GL_TRIANGLES);
-	glVertex3f(-0.5, -0.5, 0.0);
-	glVertex3f(0.0, 0.5, 0.0);
-	glVertex3f(0.5, -0.5, 0.0);
-	glEnd();
-
-	glutSwapBuffers();
 }
+
 void MainLoop() {
-	glutKeyboardUpFunc(KeyboardUpFunc);
-	
+	glutKeyboardFunc(KeyboardFunc);	
 }
 

@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\FileSystem">
+      <UniqueIdentifier>{983ea2cd-5b22-4b27-af72-a84500aded97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\FileSystem">
+      <UniqueIdentifier>{aa02b520-f29d-4402-9989-ed0f76f375c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,6 +36,12 @@
     <ClInclude Include="Controller.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="XmlReader.h">
+      <Filter>Файлы заголовков\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadMap.h">
+      <Filter>Файлы заголовков\FileSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -46,6 +58,12 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlReader.cpp">
+      <Filter>Исходные файлы\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadMap.cpp">
+      <Filter>Исходные файлы\FileSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

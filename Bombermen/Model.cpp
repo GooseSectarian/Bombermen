@@ -24,6 +24,7 @@ struct Player
 	{}
 };
 
+char** Map;
 std::vector<Player> players;
 std::vector<Vector2> spawners;
 
@@ -44,4 +45,18 @@ void InitPlayers(int NumPlayers, int StartNumBombs, float StartPlayerVelocity)
 	{
 		players[i]= {StartNumBombs, Vector2(), StartPlayerVelocity};
 	}
+}
+
+void InitMap(int width, int height)
+{
+	Map = new char*[width];
+	for (int i = 0; i < width; i++)
+	{
+		Map[i] = new char[height];
+		for (int j = 0; j < height; j++)
+		{
+			Map[i][j] = 0;
+		}
+	}
+
 }

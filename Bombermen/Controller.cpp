@@ -1,51 +1,50 @@
-#include "stdafx.h"
 #include "Controller.h"
+#include "stdafx.h"
 
 #include "Model.h"
-#include <iostream>
-#include <map>
 
-enum class VKPlayer1
-{
-	UP		= (int)KeyCodes::W,
-	DOWN	= (int)KeyCodes::S,
-	RIGHT	= (int)KeyCodes::D,
-	LEFT	= (int)KeyCodes::A,
-
-};
-
+std::vector<PlayerVK> playerVKs;
 void KeyboardFunc(unsigned char key, int x, int y)
 {
+	// проверка playerVKs на правильность
+	// обработка русских символов
 	key = toupper(key);
 
-	switch (key)
+	for (size_t i = 0; i < playerVKs.size(); i++)
 	{
-		case (int)VKPlayer1::UP:
+		if (playerVKs[i].setBomb == key)
 		{
-			std::cout << "VK_PLAYER1_UP" << std::endl;
-			PlayerMove(PlayersNumber::_1, Vector2(0, 1));
+			PlayerSetBomb(i);
 			break;
 		}
-		case (int)VKPlayer1::DOWN:
+		if (playerVKs[i].up == key)
 		{
-			PlayerMove(PlayersNumber::_1, Vector2(0, -1));
+			PlayerMove(i, Vector2(0, 1));
 			break;
 		}
-		case (int)VKPlayer1::RIGHT:
+		if (playerVKs[i].down == key)
 		{
-			PlayerMove(PlayersNumber::_1, Vector2(1, 0));
+			PlayerMove(i, Vector2(0, -1));
 			break;
 		}
-		case (int)VKPlayer1::LEFT:
+		if (playerVKs[i].right == key)
 		{
-			PlayerMove(PlayersNumber::_1, Vector2(-1, 0));
+			PlayerMove(i, Vector2(1, 0));
 			break;
 		}
-		default:
+		if (playerVKs[i].left == key)
+		{
+			PlayerMove(i, Vector2(-1, 0));
 			break;
+		}
 	}
 }
-
+// Перед вызовом функций из Controller нужно вызвать эту функцию
+void InitController(std::vector<PlayerVK> &VKs)
+{
+	//playerVKs = VKs;
+	playerVKs.assign(VKs.begin(), VKs.end());
+}
 void MainLoop() {
 	glutKeyboardFunc(KeyboardFunc);	
 }

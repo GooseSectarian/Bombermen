@@ -1,9 +1,9 @@
-#include "stdafx.h"
 #include "Model.h"
+#include "stdafx.h"
 
 #include "View.h"
 
-#include <vector>
+
 struct Player
 {
 	int numBombs;
@@ -32,10 +32,10 @@ struct Player
 std::vector<Player> players;
 std::vector<Vector2> spawners;
 
-void PlayerMove(PlayersNumber playerNumber, Vector2 vectorMove)
+void PlayerMove(int playerNumber, Vector2 vectorMove)
 {
 	vectorMove.Normalized();
-	players[(int)playerNumber].Move(vectorMove);
+	players[playerNumber].Move(vectorMove);
 }
 
 void InitPlayers(int NumPlayers, int StartNumBombs, float StartPlayerVelocity)

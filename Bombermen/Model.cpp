@@ -42,6 +42,6 @@ void InitPlayers(int NumPlayers, int StartNumBombs, float StartPlayerVelocity)
 	players.resize(NumPlayers);
 	for (size_t i = 0; i < players.size(); i++)
 	{
-		players[i]= {StartNumBombs, spawners[i], StartPlayerVelocity};
+		players[i]= {StartNumBombs, Vector2(), StartPlayerVelocity};
 	}
 }

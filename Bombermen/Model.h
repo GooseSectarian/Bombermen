@@ -33,6 +33,7 @@ struct Vector2
 Параметр vectorMove: вектор движения персонажа
 Обратите внимание что параметр vectorMove будет нормирован
 */
+void InitPlayers(int NumPlayers, int StartNumBombs, float StartPlayerVelocity);
 void PlayerMove(int playerNumber, Vector2 vectorMove);
 
 void PlayerSetBomb(int playerNumber);
